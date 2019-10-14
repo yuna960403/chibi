@@ -19,11 +19,16 @@ assert isinstance(v,Expr)   # ==> True
 assert isinstance(v,Val)    # ==> True
 assert not isinstance(v,int)    # ==> notを入れることでTrueになる=>実行可能になる
 
+def toExpr(a):
+    if not isinstance(a,Expr):
+            a = Val(a)
+    return a
+
 class Add(Expr):
     __slots__ = ['left','right']
     def __init__(self,a,b):
-        self.left = a       #aとbは式
-        self.right = b
+        self.left = toExpr(a)       #aとbは式
+        self.right = toExpr(b) 
     def eval(self):
         return self.left.eval() + self.right.eval()
 
