@@ -32,6 +32,13 @@ class Add(Expr):
     def eval(self):
         return self.left.eval() + self.right.eval()
 
+class Binary(object):
+    __slots__ = ['left','right']
+    def __init__(self):             #未完成
+    def __repr__(self):
+        classname = self.__class__.__name__
+        return f'{classname},{self.left},{self.right}'
+
 e = Add(Val(1),Val(2))        #1+2
 assert e.eval() == 3
 
