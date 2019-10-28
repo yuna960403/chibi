@@ -22,14 +22,14 @@ def parse(s:str):
         pos = s.find('+')
         s1 = s[0:pos]
         s2 = s[pos+1:]
-        return Sub(parse(s1),parse(s2))
-    if s.find('-') > 0:
-        pos = s.rfind('-')  #-を計算するときは、rfindで逆から求める
+        return Div(parse(s1),parse(s2))
+    if s.find('/') > 0:
+        pos = s.rfind('/')  #-,/を計算するときは、rfindで逆から求める
         s1 = s[0:pos]
         s2 = s[pos+1:]
-        return Sub(parse(s1),parse(s2))
+        return Div(parse(s1),parse(s2))
     return Val(int(s))
 
-e = parse("1-2-3")
-print(e,e.eval())   #-4
-assert e.eval() == -4
+e = parse("12/4/3")
+print(e,e.eval())   #1
+assert e.eval() == 1
