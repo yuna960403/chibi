@@ -27,5 +27,5 @@ def parse(s:str):
         s2 = s[pos+1:]
         return Add(parse(s1),parse(s2))
 
-e = parse("123+456+789")
-print(e)
+e = parse("1+2+3")
+print(e,e.eval())
