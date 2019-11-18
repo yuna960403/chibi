@@ -1,12 +1,9 @@
 
-example Expr 1
-example Expr 1+2
-example Expr 1+2+3
+example Expr 1+2*3
 
-Expr = {
-    Value ('+' Value)*     //  0回以上の繰り返し
-    #Add
-}
+Expr = {Value '+' Expr #Add}
+    /{Value '*' Expr #Mul}
+    /Value
 
 DIGIT = [0-9]
 
