@@ -1,8 +1,10 @@
 
+example Expr 1
+example Expr 1+2
 example Expr 1+2+3
 
 Expr = {
-    Value ('+' Value)+      //  1回以上の繰り返し
+    Value ('+' Value)*     //  0回以上の繰り返し
     #Add
 }
 
