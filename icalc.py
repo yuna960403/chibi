@@ -8,7 +8,7 @@ parser = pegpy.generate(peg)
 t = parser('1+2*3')
 print(repr(t))
 
-def calc(t):
+def calc(t):    #Exprに変換するようにする
     if t == 'Int':
         return int(str(t))
     if t == 'Add':
@@ -18,6 +18,18 @@ def calc(t):
     print(f'TODO {t.tag}')
     return 0
 
-t = parser('1+2*3+4*5')
-print(repr(t))
-print(calc(t))
+#t = parser('1+2*3+4*5')
+#print(repr(t))
+#print(calc(t))
+
+
+while True:
+    def main():
+        s = input('$ ')
+        t = parser(s)
+        print(calc(t))
+
+    if __name__ == '__main__':
+        main()
+
+        
